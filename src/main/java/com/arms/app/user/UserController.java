@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.arms.domain.component.PageWrapper;
 import com.arms.domain.entity.User;
 import com.arms.domain.service.UserService;
 
@@ -20,9 +21,10 @@ public class UserController {
 	@RequestMapping("/users")
 	public String users(Model model, @PageableDefault(value = 3) Pageable pageable){
 		Page<User> pageUserList = service.getAllUsers(pageable);
-		model.addAttribute("page", pageUserList);
-		model.addAttribute("users", pageUserList.getContent());
-		model.addAttribute("url", "/users");
+		PageWrapper<User> page = new PageWrapper<>(pageUserList, "/users");
+		model.addAttribute("page", page);
+		model.addAttribute("users", page.getContent());
+		//model.addAttribute("url", "/users");
 		return "user/list";
 	}
 }
