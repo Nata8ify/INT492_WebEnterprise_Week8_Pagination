@@ -1,4 +1,4 @@
-package com.arms.demo;
+package com.arms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

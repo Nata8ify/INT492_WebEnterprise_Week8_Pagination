@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" media="screen"
+	href="/stylesheets/bootstrap.min.css"
+	th:href="@{/stylesheets/bootstrap.min.css}">
+<title>User list</title>
+</head>
+<body>
+	<div class="container">
+		<table class="table table-striped">
+			<tr>
+				<th>Id</th>
+				<th>Name</th>
+			</tr>
+			<tr th:each="user : ${users}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.name}"></td>
+			</tr>
+		</table>
+		<div th:include="common/pagination :: pagination"></div>
+	</div>
+
+</body>
+</html>

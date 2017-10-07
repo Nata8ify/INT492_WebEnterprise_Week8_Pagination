@@ -4,14 +4,13 @@ spring:
   profiles: local
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/springboot?useUnicode=true&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/rsservice?useUnicode=true&characterEncoding=UTF-8
     username: root 
     password: 
   jpa:
     database: MYSQL
     show-sql: true
     hibernate.dialect: org.hibernate.dialect.MySQL5Dialect
-    hibernate.ddl-auto: update
   thymeleaf:
     mode: LEGACYHTML5
     cache: false
