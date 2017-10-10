@@ -17,7 +17,10 @@ public class PageWrapper<T> {
 		this.page = page;
 		this.url = url;
 		this.items = new ArrayList<>();
-
+		System.out.println("Number "+page.getNumber());
+		System.out.println("Size "+page.getSize());
+		System.out.println("Total Page "+page.getTotalPages());
+		System.out.println("Total Element "+page.getTotalElements());
 		currentNumber = page.getNumber() + 1;
 		int start;
 		int size;
@@ -50,71 +53,70 @@ public class PageWrapper<T> {
 		this.url = url;
 	}
 
-	public List<PageItem> getItems(){
-        return items;
-    }
+	public List<PageItem> getItems() {
+		return items;
+	}
 
-    public int getNumber(){
-        return currentNumber;
-    }
+	public int getNumber() {
+		return currentNumber;
+	}
 
-    public List<T> getContent(){
-        return page.getContent();
-    }
+	public List<T> getContent() {
+		return page.getContent();
+	}
 
-    public int getSize(){
-        return page.getSize();
-    }
+	public int getSize() {
+		return page.getSize();
+	}
 
-    public int getTotalPages(){
-        return page.getTotalPages();
-    }
-    
-    public boolean isFirstPage(){
-        return page.isFirst();
-    }
+	public int getTotalPages() {
+		return page.getTotalPages();
+	}
 
-    public boolean isLastPage(){
-        return page.isLast();
-    }
+	public boolean isFirstPage() {
+		return page.isFirst();
+	}
 
-    public boolean isHasPreviousPage(){
-        return page.hasPrevious();
-    }
+	public boolean isLastPage() {
+		return page.isLast();
+	}
 
-    public boolean isHasNextPage(){
-        return page.hasNext();
-    }
-    
-    public class PageItem {
-        private int number;
-        private boolean current;
-        public PageItem(int number, boolean current){
-            this.number = number;
-            this.current = current;
-        }
+	public boolean isHasPreviousPage() {
+		return page.hasPrevious();
+	}
 
-        public int getNumber(){
-            return this.number;
-        }
+	public boolean isHasNextPage() {
+		return page.hasNext();
+	}
 
-        public boolean isCurrent(){
-            return this.current;
-        }
+	public class PageItem {
+		private int number;
+		private boolean current;
+
+		public PageItem(int number, boolean current) {
+			this.number = number;
+			this.current = current;
+		}
+
+		public int getNumber() {
+			return this.number;
+		}
+
+		public boolean isCurrent() {
+			return this.current;
+		}
 
 		@Override
 		public String toString() {
-			return "PageItem [number=" + number + ", current=" + current + "]";
+			return "\nPageItem [number=" + number + ", current=" + current + "]";
 		}
-        
-        
-    }
+
+	}
 
 	@Override
 	public String toString() {
 		return "\nPageWrapper [page=" + page + ", items=" + items + ", currentNumber=" + currentNumber + ", url=" + url
 				+ "]";
 	}
-    
-    
+
 }

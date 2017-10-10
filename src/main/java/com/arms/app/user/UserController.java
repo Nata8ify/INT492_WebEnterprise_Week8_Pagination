@@ -20,13 +20,13 @@ public class UserController {
 	
 	@RequestMapping("/users")
 	public String users(Model model, @PageableDefault(value = 3) Pageable pageable){
-		System.out.println("Pageable : "+pageable.toString());
 		Page<User> pageUserList = service.getAllUsers(pageable);
-		System.out.println("Page : "+pageUserList.getContent().toString());
-		PageWrapper<User> page = new PageWrapper<>(pageUserList, "/users");
+/*		model.addAttribute("page", pageUserList);
+		model.addAttribute("users", pageUserList.getContent());
+		model.addAttribute("url", "/users");*/
+ 		PageWrapper<User> page = new PageWrapper<>(pageUserList, "/users");
 		model.addAttribute("page", page);
 		model.addAttribute("users", page.getContent());
-		//model.addAttribute("url", "/users");
 		return "user/list";
 	}
 }
