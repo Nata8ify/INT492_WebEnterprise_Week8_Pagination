@@ -50,4 +50,10 @@
 			th:href='@{${page.url}(page=${page.totalPages - 1},size=${page.size})}'>Last</a>
 		</li>
 	</ul>
+	<hr/>
+<p th:text="'Is First Page? : '+${page.firstPage}"></p>
+<p th:text="'Is has Previous Page? : '+${page.hasPreviousPage}"></p>
+<p th:text="'Page Items : '+${page.items}"></p>
+<p th:text="'Is has Next Page? : '+${page.hasNextPage}"></p>
+<p th:text="'Is Last Page? : '+${not page.firstPage}"></p>
 </div>

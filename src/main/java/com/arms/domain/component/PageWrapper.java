@@ -101,5 +101,20 @@ public class PageWrapper<T> {
         public boolean isCurrent(){
             return this.current;
         }
+
+		@Override
+		public String toString() {
+			return "PageItem [number=" + number + ", current=" + current + "]";
+		}
+        
+        
     }
+
+	@Override
+	public String toString() {
+		return "\nPageWrapper [page=" + page + ", items=" + items + ", currentNumber=" + currentNumber + ", url=" + url
+				+ "]";
+	}
+    
+    
 }
